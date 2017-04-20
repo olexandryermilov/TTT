@@ -18,6 +18,18 @@ namespace TTT
         }
         public int[,] gameState = new int[3, 3];
         public bool player1 = true;
+        public bool checkForWin(int player)
+        {
+            if (gameState[0, 0] * gameState[0, 1] * gameState[0, 2] == player * player * player) return true;
+            if (gameState[1, 0] * gameState[1, 1] * gameState[1, 2] == player * player * player) return true;
+            if (gameState[2, 0] * gameState[2, 1] * gameState[2, 2] == player * player * player) return true;
+            if (gameState[0, 0] * gameState[0, 0] * gameState[0, 0] == player * player * player) return true;
+            if (gameState[0, 1] * gameState[0, 1] * gameState[0, 1] == player * player * player) return true;
+            if (gameState[0, 2] * gameState[0, 2] * gameState[0, 2] == player * player * player) return true;
+            if (gameState[0, 0] * gameState[1, 1] * gameState[2, 2] == player * player * player) return true;
+            if (gameState[2, 0] * gameState[1, 1] * gameState[0, 2] == player * player * player) return true;
+            return false;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if(button1.Text=="")
