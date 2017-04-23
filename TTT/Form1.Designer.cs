@@ -37,6 +37,9 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.winLabel = new System.Windows.Forms.Label();
+            this.lostLabel = new System.Windows.Forms.Label();
+            this.restartButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -129,11 +132,48 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // winLabel
+            // 
+            this.winLabel.AutoSize = true;
+            this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.25F);
+            this.winLabel.ForeColor = System.Drawing.Color.Red;
+            this.winLabel.Location = new System.Drawing.Point(27, 191);
+            this.winLabel.Name = "winLabel";
+            this.winLabel.Size = new System.Drawing.Size(245, 61);
+            this.winLabel.TabIndex = 1;
+            this.winLabel.Text = "You won!";
+            this.winLabel.Visible = false;
+            // 
+            // lostLabel
+            // 
+            this.lostLabel.AutoSize = true;
+            this.lostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.25F);
+            this.lostLabel.ForeColor = System.Drawing.Color.Red;
+            this.lostLabel.Location = new System.Drawing.Point(27, 191);
+            this.lostLabel.Name = "lostLabel";
+            this.lostLabel.Size = new System.Drawing.Size(233, 61);
+            this.lostLabel.TabIndex = 2;
+            this.lostLabel.Text = "You lost!";
+            this.lostLabel.Visible = false;
+            // 
+            // restartButton
+            // 
+            this.restartButton.Location = new System.Drawing.Point(185, 27);
+            this.restartButton.Name = "restartButton";
+            this.restartButton.Size = new System.Drawing.Size(75, 23);
+            this.restartButton.TabIndex = 3;
+            this.restartButton.Text = "Restart";
+            this.restartButton.UseVisualStyleBackColor = true;
+            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.restartButton);
+            this.Controls.Add(this.lostLabel);
+            this.Controls.Add(this.winLabel);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -146,6 +186,7 @@
             this.Name = "Form1";
             this.Text = "Tic Tac Toe";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,6 +201,9 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Label lostLabel;
+        private System.Windows.Forms.Button restartButton;
     }
 }
 

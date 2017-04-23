@@ -12,9 +12,41 @@ namespace TTT
 {
     public partial class Form1 : Form
     {
+        public void restart()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    gameState[i, j] = 0;
+                }
+            }
+            button1.Text = "";
+            button2.Text = "";
+            button3.Text = "";
+            button4.Text = "";
+            button5.Text = "";
+            button6.Text = "";
+            button7.Text = "";
+            button8.Text = "";
+            button9.Text = "";
+            player1 = true;
+            winLabel.Visible = false;
+            lostLabel.Visible = false;
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
+            button7.Enabled = true;
+            button8.Enabled = true;
+            button9.Enabled = true;
+        }
         public Form1()
         {
             InitializeComponent();
+            restart();
         }
         public int[,] gameState = new int[3, 3];
         public bool player1 = true;
@@ -23,12 +55,26 @@ namespace TTT
             if (gameState[0, 0] * gameState[0, 1] * gameState[0, 2] == player * player * player) return true;
             if (gameState[1, 0] * gameState[1, 1] * gameState[1, 2] == player * player * player) return true;
             if (gameState[2, 0] * gameState[2, 1] * gameState[2, 2] == player * player * player) return true;
-            if (gameState[0, 0] * gameState[0, 0] * gameState[0, 0] == player * player * player) return true;
-            if (gameState[0, 1] * gameState[0, 1] * gameState[0, 1] == player * player * player) return true;
-            if (gameState[0, 2] * gameState[0, 2] * gameState[0, 2] == player * player * player) return true;
+            if (gameState[0, 0] * gameState[1, 0] * gameState[2, 0] == player * player * player) return true;
+            if (gameState[0, 1] * gameState[1, 1] * gameState[2, 1] == player * player * player) return true;
+            if (gameState[0, 2] * gameState[1, 2] * gameState[2, 2] == player * player * player) return true;
             if (gameState[0, 0] * gameState[1, 1] * gameState[2, 2] == player * player * player) return true;
             if (gameState[2, 0] * gameState[1, 1] * gameState[0, 2] == player * player * player) return true;
             return false;
+        }
+        public void gameOver(bool playerWon)
+        {
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = false;
+            button7.Enabled = false;
+            button8.Enabled = false;
+            button9.Enabled = false;
+            if (playerWon) winLabel.Visible = true;
+            else lostLabel.Visible = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,6 +85,10 @@ namespace TTT
                 else
                     button1.Text = "O";
                 gameState[0, 0] = 1;
+                if(checkForWin(1))
+                {
+                    gameOver(true);
+                }
                //makeMove();
             }
         }
@@ -52,6 +102,10 @@ namespace TTT
                 else
                     button2.Text = "O";
                 gameState[0, 1] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -65,6 +119,10 @@ namespace TTT
                 else
                     button3.Text = "O";
                 gameState[0, 2] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -78,6 +136,10 @@ namespace TTT
                 else
                     button4.Text = "O";
                 gameState[1, 0] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -91,6 +153,10 @@ namespace TTT
                 else
                     button5.Text = "O";
                 gameState[1, 1] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -104,6 +170,10 @@ namespace TTT
                 else
                     button6.Text = "O";
                 gameState[1, 2] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -117,6 +187,10 @@ namespace TTT
                 else
                     button7.Text = "O";
                 gameState[2, 0] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -130,6 +204,10 @@ namespace TTT
                 else
                     button8.Text = "O";
                 gameState[2, 1] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
         }
@@ -143,8 +221,17 @@ namespace TTT
                 else
                     button9.Text = "O";
                 gameState[2, 2] = 1;
+                if (checkForWin(1))
+                {
+                    gameOver(true);
+                }
                 //makeMove();
             }
+        }
+
+        private void restartButton_Click(object sender, EventArgs e)
+        {
+            restart();
         }
     }
 }
