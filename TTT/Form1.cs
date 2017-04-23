@@ -30,7 +30,7 @@ namespace TTT
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
-            player1 = true;
+            player = 1;
             winLabel.Visible = false;
             lostLabel.Visible = false;
             button1.Enabled = true;
@@ -49,7 +49,7 @@ namespace TTT
             restart();
         }
         public int[,] gameState = new int[3, 3];
-        public bool player1 = true;
+        public int player = 1;
         public bool checkForWin(int player)
         {
             if (gameState[0, 0] * gameState[0, 1] * gameState[0, 2] == player * player * player) return true;
@@ -62,7 +62,18 @@ namespace TTT
             if (gameState[2, 0] * gameState[1, 1] * gameState[0, 2] == player * player * player) return true;
             return false;
         }
-        public void gameOver(bool playerWon)
+        public bool checkForDraw()
+        {
+            for(int i=0;i<3;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    if (gameState[i, j] == 0) return true;
+                }
+            }
+            return false;
+        }
+        public void gameOver(int playerWon)
         {
             button1.Enabled = false;
             button2.Enabled = false;
@@ -73,22 +84,28 @@ namespace TTT
             button7.Enabled = false;
             button8.Enabled = false;
             button9.Enabled = false;
-            if (playerWon) winLabel.Visible = true;
+            if (playerWon == 0) drawLabel.Visible = true;
+            else if (playerWon == 1) winLabel.Visible = true;
             else lostLabel.Visible = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
             if(button1.Text=="")
             {
-                if (player1)
+                if (player==1)
                     button1.Text = "X";
                 else
                     button1.Text = "O";
-                gameState[0, 0] = 1;
-                if(checkForWin(1))
+                gameState[0, 0] = player;
+                if(checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                if(checkForDraw())
+                {
+                    gameOver(0);
+                }
+                player = 3-player;
                //makeMove();
             }
         }
@@ -97,15 +114,16 @@ namespace TTT
         {
             if (button2.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button2.Text = "X";
                 else
                     button2.Text = "O";
-                gameState[0, 1] = 1;
-                if (checkForWin(1))
+                gameState[0, 1] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3-player;
                 //makeMove();
             }
         }
@@ -114,15 +132,16 @@ namespace TTT
         {
             if (button3.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button3.Text = "X";
                 else
                     button3.Text = "O";
-                gameState[0, 2] = 1;
-                if (checkForWin(1))
+                gameState[0, 2] = player;
+                if(checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -131,15 +150,16 @@ namespace TTT
         {
             if (button4.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button4.Text = "X";
                 else
                     button4.Text = "O";
-                gameState[1, 0] = 1;
-                if (checkForWin(1))
+                gameState[1, 0] = player;
+                if(checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -148,15 +168,16 @@ namespace TTT
         {
             if (button5.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button5.Text = "X";
                 else
                     button5.Text = "O";
-                gameState[1, 1] = 1;
-                if (checkForWin(1))
+                gameState[1, 1] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -165,15 +186,16 @@ namespace TTT
         {
             if (button6.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button6.Text = "X";
                 else
                     button6.Text = "O";
-                gameState[1, 2] = 1;
-                if (checkForWin(1))
+                gameState[1, 2] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -182,15 +204,16 @@ namespace TTT
         {
             if (button7.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button7.Text = "X";
                 else
                     button7.Text = "O";
-                gameState[2, 0] = 1;
-                if (checkForWin(1))
+                gameState[2, 0] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -199,15 +222,16 @@ namespace TTT
         {
             if (button8.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button8.Text = "X";
                 else
                     button8.Text = "O";
-                gameState[2, 1] = 1;
-                if (checkForWin(1))
+                gameState[2, 1] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }
@@ -216,15 +240,16 @@ namespace TTT
         {
             if (button9.Text == "")
             {
-                if (player1)
+                if (player==1)
                     button9.Text = "X";
                 else
                     button9.Text = "O";
-                gameState[2, 2] = 1;
-                if (checkForWin(1))
+                gameState[2, 2] = player;
+                if (checkForWin(player))
                 {
-                    gameOver(true);
+                    gameOver(player);
                 }
+                player = 3 - player;
                 //makeMove();
             }
         }

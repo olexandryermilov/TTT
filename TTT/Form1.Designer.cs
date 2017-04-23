@@ -40,6 +40,7 @@
             this.winLabel = new System.Windows.Forms.Label();
             this.lostLabel = new System.Windows.Forms.Label();
             this.restartButton = new System.Windows.Forms.Button();
+            this.drawLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -139,9 +140,9 @@
             this.winLabel.ForeColor = System.Drawing.Color.Red;
             this.winLabel.Location = new System.Drawing.Point(27, 191);
             this.winLabel.Name = "winLabel";
-            this.winLabel.Size = new System.Drawing.Size(245, 61);
+            this.winLabel.Size = new System.Drawing.Size(187, 61);
             this.winLabel.TabIndex = 1;
-            this.winLabel.Text = "You won!";
+            this.winLabel.Text = "X won!";
             this.winLabel.Visible = false;
             // 
             // lostLabel
@@ -151,9 +152,9 @@
             this.lostLabel.ForeColor = System.Drawing.Color.Red;
             this.lostLabel.Location = new System.Drawing.Point(27, 191);
             this.lostLabel.Name = "lostLabel";
-            this.lostLabel.Size = new System.Drawing.Size(233, 61);
+            this.lostLabel.Size = new System.Drawing.Size(193, 61);
             this.lostLabel.TabIndex = 2;
-            this.lostLabel.Text = "You lost!";
+            this.lostLabel.Text = "O won!";
             this.lostLabel.Visible = false;
             // 
             // restartButton
@@ -166,11 +167,24 @@
             this.restartButton.UseVisualStyleBackColor = true;
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
+            // drawLabel
+            // 
+            this.drawLabel.AutoSize = true;
+            this.drawLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.25F);
+            this.drawLabel.ForeColor = System.Drawing.Color.Red;
+            this.drawLabel.Location = new System.Drawing.Point(27, 191);
+            this.drawLabel.Name = "drawLabel";
+            this.drawLabel.Size = new System.Drawing.Size(150, 61);
+            this.drawLabel.TabIndex = 4;
+            this.drawLabel.Text = "Draw";
+            this.drawLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.drawLabel);
             this.Controls.Add(this.restartButton);
             this.Controls.Add(this.lostLabel);
             this.Controls.Add(this.winLabel);
@@ -204,6 +218,7 @@
         private System.Windows.Forms.Label winLabel;
         private System.Windows.Forms.Label lostLabel;
         private System.Windows.Forms.Button restartButton;
+        private System.Windows.Forms.Label drawLabel;
     }
 }
 
