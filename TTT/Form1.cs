@@ -68,10 +68,10 @@ namespace TTT
             {
                 for(int j=0;j<3;j++)
                 {
-                    if (gameState[i, j] == 0) return true;
+                    if (gameState[i, j] == 0) return false;
                 }
             }
-            return false;
+            return true;
         }
         public void gameOver(int playerWon)
         {
@@ -123,6 +123,10 @@ namespace TTT
                 {
                     gameOver(player);
                 }
+                if (checkForDraw())
+                {
+                    gameOver(0);
+                }
                 player = 3-player;
                 //makeMove();
             }
@@ -140,6 +144,10 @@ namespace TTT
                 if(checkForWin(player))
                 {
                     gameOver(player);
+                }
+                if (checkForDraw())
+                {
+                    gameOver(0);
                 }
                 player = 3 - player;
                 //makeMove();
@@ -159,6 +167,10 @@ namespace TTT
                 {
                     gameOver(player);
                 }
+                if (checkForDraw())
+                {
+                    gameOver(0);
+                }
                 player = 3 - player;
                 //makeMove();
             }
@@ -176,6 +188,10 @@ namespace TTT
                 if (checkForWin(player))
                 {
                     gameOver(player);
+                }
+                if (checkForDraw())
+                {
+                    gameOver(0);
                 }
                 player = 3 - player;
                 //makeMove();
@@ -195,6 +211,10 @@ namespace TTT
                 {
                     gameOver(player);
                 }
+                if (checkForDraw())
+                {
+                    gameOver(0);
+                }
                 player = 3 - player;
                 //makeMove();
             }
@@ -212,6 +232,10 @@ namespace TTT
                 if (checkForWin(player))
                 {
                     gameOver(player);
+                }
+                if (checkForDraw())
+                {
+                    gameOver(0);
                 }
                 player = 3 - player;
                 //makeMove();
@@ -231,6 +255,10 @@ namespace TTT
                 {
                     gameOver(player);
                 }
+                if (checkForDraw())
+                {
+                    gameOver(0);
+                }
                 player = 3 - player;
                 //makeMove();
             }
@@ -248,6 +276,10 @@ namespace TTT
                 if (checkForWin(player))
                 {
                     gameOver(player);
+                }
+                if (checkForDraw())
+                {
+                    gameOver(0);
                 }
                 player = 3 - player;
                 //makeMove();
