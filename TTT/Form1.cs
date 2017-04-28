@@ -21,6 +21,7 @@ namespace TTT
                     gameState[i, j] = 0;
                 }
             }
+
             button1.Text = "";
             button2.Text = "";
             button3.Text = "";
@@ -30,9 +31,13 @@ namespace TTT
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
+
             player = 1;
+
             winLabel.Visible = false;
             lostLabel.Visible = false;
+            drawLabel.Visible = false;
+
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
